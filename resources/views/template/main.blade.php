@@ -427,22 +427,6 @@ $outlet = 'Smart Hospital';
                                 class="fa fa-plus-square"></i><span>Issue Medicine</span></a></li>
                     @endif
 
-                    <li class="treeview {{Active::checkRoute(['attendmore','myattend'])}}">
-                        <a href="#"><i class="fas fa-calendar-check"></i></i><span> Attendance</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="{{Active::checkRoute('myattend')}}"><a href="{{route('myattend')}}"><i
-                                        class="fas fa-calendar-day" aria-hidden="true"></i>&nbsp; My
-                                    Attendance</a></li>
-                            @if($user_type=='Admssin')
-                            <li class="{{Active::checkRoute('attendmore')}}"><a href="{{route('attendmore')}}"><i
-                                        class="fas fa-plus-square" aria-hidden="true"></i>&nbsp; More</a></li>
-                            @endif
-                        </ul>
-                    </li>
 
                     @if($user_type=='Admin')
                     {{-- Users Operations --}}
@@ -457,19 +441,14 @@ $outlet = 'Smart Hospital';
                             <li class="{{Active::checkRoute('newuser')}}"><a href="{{route('newuser')}}"><i
                                         class="fa fa-user-plus" aria-hidden="true"></i>New
                                     User</a></li>
-                            <li class="{{Active::checkRoute('regfinger')}}"><a href="{{route('regfinger')}}"><i
-                                        class="fa fa-fingerprint" aria-hidden="true"></i>Register Fingerprint</a></li>
-                            <li class="{{Active::checkRoute('resetuser')}}"><a href="{{route('resetuser')}}"><i
-                                        class="fa fa-user-edit" aria-hidden="true"></i>Reset
-                                    User</a></li>
                         </ul>
                     </li>
                     @endif
 
                     {{-- Profile --}}
 
-                    <li class="{{Active::checkRoute('profile')}}"><a href="{{route('profile')}}"><i
-                                class="fas fa-user"></i><span> Profile</span></a></li>
+{{--                    <li class="{{Active::checkRoute('profile')}}"><a href="{{route('profile')}}"><i--}}
+{{--                                class="fas fa-user"></i><span> Profile</span></a></li>--}}
 
                     {{-- Wards --}}
 
@@ -480,60 +459,15 @@ $outlet = 'Smart Hospital';
                     @endif
 
                     @if($user_type=="Admin")
-                    {{--add notices--}}
-                    <li class="{{Active::checkRoute('createnoticeview')}}">
-                        <a href="{{route('createnoticeview')}}">
-                            <i class="fas fa-envelope-open-text"></i>
-                            <span> Notices</span>
-                        </a>
-                    </li>
+
                     @endif
 
                     @if($user_type=="Admin"||$user_type=="Doctor")
                     {{--statistics--}}
-                    <li class="{{Active::checkRoute(['stats','stats_old'])}}">
-                        <a href="{{route('stats')}}">
-                            <i class="fas fa-chart-line"></i></i>
-                            <span> Statistics</span>
-                        </a>
-                    </li>
+
                     @endif
 
 
-                    {{--report generation--}}
-                    <li
-                        class="treeview {{Active::checkRoute(['inPatientReport','inPatientReportData','clinic_reports','mob_clinic_report','mon_stat_report','out_p_report','attendance_report'])}}">
-                        <a href="#">
-                            <i class="fas fa-sticky-note"></i>
-                            <span> Report Generation</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            @if($user_type=="Admin"||$user_type=="Doctor")
-                            <li class="{{Active::checkRoute('clinic_reports')}}"><a
-                                    href="{{route('clinic_reports')}}"><i class="fa fa-stethoscope"
-                                        aria-hidden="true"></i> Clinic Report</a></li>
-                            @endif
-
-                            @if($user_type=="Admin"||$user_type=="Doctor")
-                            <li class="{{Active::checkRoute('mon_stat_report')}}"><a
-                                    href="{{route('mon_stat_report')}}"><i class="fa fa-sticky-note"
-                                        aria-hidden="true"></i> Monthly Statistic Report</a></li>
-                            @endif
-
-
-                            <li class="{{Active::checkRoute(['inPatientReport','inPatientReportData'])}}"><a
-                                    href="{{route('inPatientReport')}}"><i class="fa fa-hospital-o"
-                                        area-hidden="true"></i><span>In Patient Stats</span></a>
-                            </li>
-
-                            <li class="{{Active::checkRoute('attendance_report')}}"><a
-                                    href="{{route('attendance_report')}}"><i class="fa fa-clipboard
-                                        aria-hidden=" true"></i> Attendance Report</a></li>
-                        </ul>
-                    </li>
 
 
 
